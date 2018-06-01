@@ -1,15 +1,18 @@
-##PyCDEK
+# PyCDEK
 [![Build Status](https://travis-ci.org/onrik/pycdek.svg?branch=master)](https://travis-ci.org/onrik/pycdek)
+[![Build status](https://ci.appveyor.com/api/projects/status/nqfjljevt7cueqx7/branch/master?svg=true)](https://ci.appveyor.com/project/Vitallium/pycdek/branch/master)
 
 Библиотека для работы с API транспортной компании [СДЭК](http://cdek.ru/).
 
 База городов, список тарифов и докуентация API доступны по ссылке: http://www.edostavka.ru/website/edostavka/upload/custom/files/CDEK_integrator.zip
 
-####Установка:
+## Установка
 
-    pip install pycdek
+```
+pip install pycdek
+```
 
-#### Пример использования:
+## Пример использования
 Методы не требующие логина и пароля:
 
 ```python
@@ -29,7 +32,6 @@ print Client.get_shipping_cost(MOSCOW_ID, SP_ID, tariffs, goods=[{'weight': 1, '
 # расчет доставки Санкт-Петербург - Москва одной посылки весом 2кг и габаритами (см) 100x10x20
 tariffs = [11, 16, 137]  # тарифы склад-дверь (доставка курьером)
 print Client.get_shipping_cost(SP_ID, MOSCOW_ID, tariffs, goods=[{'weight': 2, 'length': 100, 'width': 10, 'height': 20}])
-    
 ```
 
 Пример использования методов, требующих логин и пароль с использованием Django моделей, доступен в файле [example.py](example.py) (Для получения логина и пароля необходимо [заключить договор](http://www.edostavka.ru/reglament.html) с транспортной компанией).
