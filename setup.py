@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 from setuptools import setup
 from pycdek import __version__
 
@@ -14,6 +15,7 @@ setup(
     package_data={'pycdek': [
         'pycdek/*.py',
     ]},
+    install_requires = ['six>=1.10.0'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
@@ -22,6 +24,7 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
         'Topic :: Software Development :: Libraries :: Python Modules',
-    ],
+    ]
 )
