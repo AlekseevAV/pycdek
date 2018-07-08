@@ -5,7 +5,7 @@ import hashlib
 import datetime
 import six
 from xml.etree import ElementTree
-from abc import ABCMeta, abstractmethod
+from abc import abstractmethod
 
 # Python 3 version
 try:
@@ -22,7 +22,7 @@ except ImportError:
     from cStringIO import StringIO
 
 
-class AbstractOrder(six.with_metaclass(ABCMeta, object)):
+class AbstractOrder():
     def get_number(self):
         """ Номер заказа """
         return getattr(self, 'number')
@@ -84,7 +84,7 @@ class AbstractOrder(six.with_metaclass(ABCMeta, object)):
         return ''
 
 
-class AbstractOrderLine(six.with_metaclass(ABCMeta, object)):
+class AbstractOrderLine():
     @abstractmethod
     def get_product_title(self):
         """ Название товара """
