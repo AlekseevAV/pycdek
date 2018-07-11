@@ -304,7 +304,7 @@ class Client(object):
 
         response = self._exec_request(self.ORDER_PRINT_URL, urlencode({'xml_request': self._xml_to_string(orders_print_element)}), method='POST')
 
-        return response if not response.startswith('<?xml') else None
+        return response if not response.startswith(b'<?xml') else None
 
     def call_courier(self, date, time_begin, time_end, sender_city_id, sender_phone, sender_name, weight, address_street, address_house, address_flat, comment='', lunch_begin=None, lunch_end=None):
         """
