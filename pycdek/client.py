@@ -243,6 +243,7 @@ class Client(object):
             item_element.attrib['WareKey'] = str(product.get_product_upc())[:30]
             item_element.attrib['Cost'] = str(product.get_product_price())
             item_element.attrib['Payment'] = str(product.get_product_payment())
+            item_element.attrib['Comment'] = str(product.get_product_title())
 
             total_weight += product.get_product_weight()
 
