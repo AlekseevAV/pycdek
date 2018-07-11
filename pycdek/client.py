@@ -209,7 +209,11 @@ class Client(object):
         return self._parse_xml(response)
 
     def _make_secure(self, date):
-        return hashlib.md5('%s&%s' % (date, self._password)).hexdigest()
+        code = '{}&{}'.format(date, self._password)
+        if isinstance(code, str):
+            code = code.encode('utf-8')
+
+        return hashlib.md5(code).hexdigest()
 
     def create_order(self, order):
         """
