@@ -7,19 +7,10 @@ import six
 from xml.etree import ElementTree
 from abc import abstractmethod
 
-# Python 3 version
-try:
-    import urllib.request as urllib_request
-    from urllib.error import HTTPError
-    from urllib.parse import urlencode
-    from io import StringIO
-# Python 2 version
-except ImportError:
-    import urllib2 as urllib_request
-    from six.moves.urllib.parse import urlencode
-    from six.moves.urllib.request import urlopen
-    from six.moves.urllib.error import HTTPError
-    from cStringIO.StringIO import StringIO
+import urllib.request as urllib_request
+from urllib.error import HTTPError
+from urllib.parse import urlencode
+from io import BytesIO
 
 
 class AbstractOrder():
@@ -194,10 +185,10 @@ class Client(object):
         return [cls._xml_to_dict(point) for point in xml.findall('Pvz')]
 
     def _xml_to_string(self, xml):
-        buff = StringIO()
+        buff = BytesIO()
         ElementTree.ElementTree(xml).write(buff, encoding='UTF-8', xml_declaration=False)
 
-        return '<?xml version="1.0" encoding="UTF-8" ?>' + buff.getvalue()
+        return b'<?xml version="1.0" encoding="UTF-8" ?>' + buff.getvalue()
 
     def _exec_xml_request(self, url, xml_element):
         date = datetime.datetime.now().isoformat()
