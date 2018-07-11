@@ -19,7 +19,7 @@ except ImportError:
     from six.moves.urllib.parse import urlencode
     from six.moves.urllib.request import urlopen
     from six.moves.urllib.error import HTTPError
-    from cStringIO import StringIO
+    from cStringIO.StringIO import StringIO
 
 
 class AbstractOrder():
@@ -194,7 +194,7 @@ class Client(object):
         return [cls._xml_to_dict(point) for point in xml.findall('Pvz')]
 
     def _xml_to_string(self, xml):
-        buff = StringIO.StringIO()
+        buff = StringIO()
         ElementTree.ElementTree(xml).write(buff, encoding='UTF-8', xml_declaration=False)
 
         return '<?xml version="1.0" encoding="UTF-8" ?>' + buff.getvalue()
