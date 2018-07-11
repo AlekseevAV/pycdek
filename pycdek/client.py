@@ -22,6 +22,14 @@ class AbstractOrder():
     def get_products(self):
         """ Список товаров """
 
+    def get_sender_name(self):
+        """ Наименование отправителя """
+        return ''
+
+    def get_sender_address(self):
+        """ Адрес отправителя """
+        return ''
+
     def get_sender_city_id(self):
         """ ID города отправителя по базе СДЭК """
         return getattr(self, 'sender_city_id')
@@ -225,6 +233,8 @@ class Client(object):
         order_element.attrib['DeliveryRecipientCost'] = str(order.get_shipping_price())
         order_element.attrib['Phone'] = str(order.get_recipient_phone())
         order_element.attrib['Comment'] = order.get_comment()
+        order_element.attrib['SellerName'] = str(order.get_sender_name())
+        order_element.attrib['SendAddress'] = str(order.get_sender_address())
 
         address_element = ElementTree.SubElement(order_element, 'Address')
         if order.get_pvz_code():
