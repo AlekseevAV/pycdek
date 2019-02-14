@@ -110,7 +110,7 @@ class AbstractOrderLine():
 
 
 class Client(object):
-    INTEGRATOR_URL = 'http://gw.edostavka.ru:11443'
+    INTEGRATOR_URL = 'http://integration.cdek.ru'
     CALCULATOR_URL = 'http://api.cdek.ru/calculator/calculate_price_by_json.php'
     CREATE_ORDER_URL = INTEGRATOR_URL + '/new_orders.php'
     DELETE_ORDER_URL = INTEGRATOR_URL + '/delete_orders.php'
