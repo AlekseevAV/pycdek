@@ -199,7 +199,7 @@ class Client(object):
         return b'<?xml version="1.0" encoding="UTF-8" ?>' + buff.getvalue()
 
     def _exec_xml_request(self, url, xml_element):
-        date = datetime.datetime.now().isoformat()
+        date = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
         xml_element.attrib['Date'] = date
         xml_element.attrib['Account'] = self._login
         xml_element.attrib['Secure'] = self._make_secure(date)
