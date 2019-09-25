@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 from django.db import models
-from pycdek import AbstractOrder, AbstractOrderLine, Client
+from pycdek3 import AbstractOrder, AbstractOrderLine, Client
 
 
 class Product(models.Model):
@@ -73,7 +72,7 @@ Order.objects.create(
     recipient_phone='+7 (999) 999-99-99',
     recipient_city_id=270,  # Новосибирск
     recipient_city_postcode=630066,  # Новосибирск
-    shipping_tariff=137,  # самовывоз
+    shipping_tariff=136,  # самовывоз
     is_paid=True
 )
 
@@ -86,7 +85,7 @@ order = Order.objects.create(
     recipient_address_street='пр. Ленина',
     recipient_address_house=1,
     recipient_address_flat=1,
-    shipping_tariff=136,  # доставка курьером
+    shipping_tariff=137,  # доставка курьером
     comment='Позвонить за час'
 )
 

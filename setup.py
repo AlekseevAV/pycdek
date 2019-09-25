@@ -1,18 +1,22 @@
 from setuptools import setup
-from pycdek import __version__
+from pycdek3 import __version__
+
+with open("README.md", "r", encoding='utf-8') as fh:
+    long_description = fh.read()
 
 setup(
     name='pycdek',
-    url='http://github.com/onrik/pycdek/',
-    download_url='https://github.com/onrik/pycdek/tarball/master',
+    url='http://github.com/AlekseevAV/pycdek/',
     version=__version__,
-    description='Client for CDEK API',
-    author='Andrey',
-    author_email='and@rey.im',
+    description='Python3 client for CDEK API',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    author='Alekseev Aleksandr',
+    author_email='alekseevavx@gmail.com',
     license='MIT',
-    packages=['pycdek'],
-    package_data={'pycdek': [
-        'pycdek/*.py',
+    packages=['pycdek3'],
+    package_data={'pycdek3': [
+        'pycdek3/*.py',
     ]},
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -20,10 +24,8 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
-    install_requires=['six']
+    python_requires='>=3.4',
 )
